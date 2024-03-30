@@ -1,0 +1,21 @@
+<div class="container">
+
+    <div class="list-group">
+        <a *ngFor="let student of studentObject" href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3"
+            aria-current="true">
+            <img src="{{ student.avatar }}" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+            <div class="d-flex gap-2 w-100 justify-content-between">
+                <div>
+                    <h6 class="mb-0">{{ student.nombre }}</h6>
+                    <p class="mb-0 opacity-75" [ngSwitch]="student.localidad">Localidad:
+                        <small *ngSwitchCase="'ext'">Extranjero</small>
+                        <small *ngSwitchCase="'capital'">Capital</small>
+                        <small *ngSwitchCase="'int'">Interior</small>
+                    </p>
+                </div>
+                <small [ngClass]="obtenerEscala(student.calificacion)">Calificación: {{ student.calificacion}}</small>
+            </div>
+        </a>
+    </div>
+
+</div>

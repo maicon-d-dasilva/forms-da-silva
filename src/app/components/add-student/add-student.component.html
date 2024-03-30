@@ -1,0 +1,49 @@
+<div class="container">
+
+    <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()" class="row gx-3 gy-2 align-items-center mt-4">
+        <div class="col-sm-3">
+            <label class="visually-hidden" for="specificSizeInputName">Nombre</label>
+            <input [ngClass]="nombreControl?.valid ? 'is-valid' : 'is-invalid'" formControlName="nombre" type="text" class="form-control" id="specificSizeInputName" placeholder="Nombre">
+            <span *ngIf="nombreControl?.hasError('boilerFound')" class="invalid-feedback">El nombre ingresado no es admitido</span>
+        </div>
+      
+        <div class="col-sm-2">
+            <label class="visually-hidden" for="specificSizeSelect">Localidad</label>
+            <select [ngClass]="localidadControl?.valid ? 'is-valid' : 'is-invalid'" formControlName="localidad" class="form-select" id="specificSizeSelect">
+                <option disabled selected>Localidad</option>
+                <option value="capital">Capital</option>
+                <option value="int">Interior</option>
+                <option value="ext">Extranjero</option>
+            </select>
+        </div>
+        <div class="col-sm-2">
+            <label class="visually-hidden" for="specificSizeSelect">Calificación</label>
+            <select [ngClass]="califControl?.valid ? 'is-valid' : 'is-invalid'" formControlName="calificacion" class="form-select" id="specificSizeSelect">
+                <option disabled selected>Calificación</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+        <div class="col-sm-3">
+            <div class="input-group">
+                <label class="input-group-text" for="inputGroupFile01">Avatar</label>
+                <input [ngClass]="avatarControl?.valid ? 'is-valid' : 'is-invalid'" formControlName="avatar" type="file" class="form-control" id="inputGroupFile01">
+            </div>
+
+        </div>
+    
+        <div class="col-12">
+            <button type="submit" [ngClass]="addUserForm.invalid ? 'disabled' : ''" class="btn btn-primary">Agregar</button>
+        </div>
+    </form>
+
+</div>
+<hr/>
